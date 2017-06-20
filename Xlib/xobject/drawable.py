@@ -665,6 +665,10 @@ class Window(Drawable):
         self.change_text_property(Xatom.WM_NAME, Xatom.STRING, name,
                                   onerror = onerror)
 
+    def set_wm_name_utf8(self, name, onerror = None):
+        self.change_text_property(Xatom.WM_NAME, self.display.get_atom('UTF8_STRING'), name,
+                                  onerror = onerror)
+
     def get_wm_name(self):
         return self.get_full_text_property(Xatom.WM_NAME, Xatom.STRING)
 
